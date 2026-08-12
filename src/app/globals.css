@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-paper text-ink;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-display tracking-wide;
+}
+
+/* Signature element: status badge styled like a raffle/registration
+   ticket stub — a small punched hole on the left, slight rotation.
+   Assumes it sits on a white card/surface (bg-white). */
+.ticket-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.7rem 0.3rem 1.1rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  font-weight: 600;
+  border-radius: 3px;
+  transform: rotate(-1deg);
+}
+
+.ticket-badge::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* Admin pinned message — a literal push-pin poking out the top,
+   reinforcing the papan pengumuman (bulletin board) motif. */
+.pinned-note {
+  position: relative;
+  transform: rotate(-0.5deg);
+}
+
+.pinned-note::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: -5px;
+  width: 8px;
+  height: 8px;
+  background: #e4572e;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.4);
+}
+
+/* Galaxy background — used only on the Papan Turnamen (home) page.
+   Fixed full-viewport layer, sits behind normal content. */
+.galaxy-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 15%, rgba(120, 80, 200, 0.35), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 85% 10%, rgba(31, 140, 110, 0.3), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 60% 90%, rgba(160, 70, 160, 0.28), transparent 60%),
+    linear-gradient(180deg, #0a0b1e 0%, #14152e 45%, #1d1338 100%);
+}
+
+.galaxy-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.7;
+  background-image:
+    radial-gradient(1.5px 1.5px at 10% 15%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 30% 45%, #fff, transparent),
+    radial-gradient(1px 1px at 50% 8%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 72% 62%, #fff, transparent),
+    radial-gradient(1px 1px at 85% 22%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 15% 75%, #fff, transparent),
+    radial-gradient(1px 1px at 40% 88%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 92% 78%, #fff, transparent),
+    radial-gradient(1px 1px at 62% 35%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 25% 55%, #fff, transparent),
+    radial-gradient(1px 1px at 5% 90%, #fff, transparent),
+    radial-gradient(1px 1px at 95% 50%, #fff, transparent);
+}
